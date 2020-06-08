@@ -1,5 +1,5 @@
 module DatabaseManager
-  DATA_LOCATION = '../db/'.freeze 
+  DATA_LOCATION = './db/'.freeze 
 
   def append_to_file(file_name, entry)
     n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'a')
