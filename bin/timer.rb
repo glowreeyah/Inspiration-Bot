@@ -10,7 +10,7 @@ token = ENV['TELEGRAM_API_KEY']
 
 loop do
   users = Entries.users
-  users = [+234 7034653696]
+  users = [1061110010]
   i = 0
   while i < users.size
     user = users[i].to_i
