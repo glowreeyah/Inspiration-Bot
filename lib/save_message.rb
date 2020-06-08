@@ -20,10 +20,10 @@ class SaveMessage
     entries = File.read(".db/#{user}".split("\n")) if File.file?("./db/#{user}")
     entries.each do |entry|
       get_string += "\n#{entry}\n"
-  end
+    end
   get_string
+  end
 end
+  # SaveMessage.new(1061110010, 'hi there!').save_message
 
-#  SaveMessage.new(1061110010, 'hi there!').save_message
-
-#  p SaveMessage.get_messages(1061110010)
+  # p SaveMessage.get_messages(1061110010)

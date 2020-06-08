@@ -4,7 +4,7 @@ require 'dotenv/load'
 load './lib/write.rb'
 load './lib/entries.rb'
 load './lib/save_message.rb'
-file_data = File.read('./db/nuggets.txt').split("\n")
+file_data = File.read('../db/nuggets.txt').split("\n")
 
 token = ENV['TELEGRAM_API_KEY']
 

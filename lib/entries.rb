@@ -1,11 +1,11 @@
 class Entries
   attr_reader :user, :file
   @@users = []
-  @@file = '.db/users.txt'
+  @@file = '../db/users.txt'
 
   def initialize(user)
     @user = user
-    @file = '.db/users.txt'
+    @file = '../db/users.txt'
     @@users = update_arr(@user, @file)
   end
 
