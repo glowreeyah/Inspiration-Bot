@@ -3,7 +3,7 @@ require_relative './database_manager'
 class SaveMessage
   include DatabaseManager
 
-  def initialize(message_object, message)
+  def initialize(message_object)
     @user = message_object.chat.id
     @date = Time.at(message_object.date).strftime('%e %b %Y %k:%M')
     @message = message_object.text.to_s

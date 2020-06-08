@@ -35,7 +35,7 @@ Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: chat_id, text: "Your testimony entry has been cancelled.")
     
     when %r{^/view}
-      bot.api.send_message(chat_id: chat_id, text: "Here are your testimony entries #{SaveMessage.get_messages(chat_id)}")
+      bot.api.send_message(chat_id: chat_id, text: "Here are your testimony entries: #{SaveMessage.get_messages(chat_id)}")
 
     when %r{^/word}
       bot.api.send_message(chat_id: chat_id, text: (file_data[rand(1..file_data.size)]).to_s)
@@ -43,7 +43,7 @@ Telegram::Bot::Client.run(token) do |bot|
     else
       if Write.write_state?(chat_id)
         Write.new(chat_id).remove_user(chat_id)
-        SaveMessage.new(message, message.text.to_s).store_message
+        SaveMessage.new(message).store_message
         bot.api.send_message(chat_id: chat_id, text: "Amazing! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view")
       end
     end
