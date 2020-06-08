@@ -21,7 +21,7 @@ class SaveMessage
     remove_from_file(@user, entry_to_delete)
   end
 
-  def messages(user)
+  def messages
     return unless file_exists?(@user)
 
     get_string = "\n"
