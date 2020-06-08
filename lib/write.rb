@@ -10,7 +10,7 @@ class Write < Entries
   end
 
   def self.in_write_state?(user)
-    current_users = File.read('./db.users.txt').split("\n")
+    current_users = File.read('./db.users_test.txt').split("\n")
     puts current_users
     return true if current_users.include? user.to_s
   end

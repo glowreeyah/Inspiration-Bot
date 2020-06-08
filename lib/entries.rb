@@ -3,6 +3,7 @@
 class Entries
   attr_reader :user, :file
   @@users = []
+  @@file = '.db/users.txt'
 
   def initialize(user)
     @user = user
@@ -11,7 +12,7 @@ class Entries
   end
 
   def self.users
-    @@users = File.read(@file).split("\n")
+    @@users = File.read(@@file).split("\n")
   end
 
   def delete_user(use)
@@ -25,7 +26,7 @@ class Entries
   end
 
   private
-  
+
   def update_arr(user, file)
     current_users = File.read(file).split("\n")
     unless current_users.include? user.to_s
@@ -40,3 +41,5 @@ class Entries
   #   entry_data[user.to_sym][Time.new.strftime('%Y%m%d%H%M%S').to_s.to_sym.to_sym] = data
   # end
 end
+
+puts Entries.users
