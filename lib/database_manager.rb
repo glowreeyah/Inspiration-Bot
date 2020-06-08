@@ -36,11 +36,11 @@ module DatabaseManager
 end
 
 ## Testing
-  include DatabaseManager
+# include DatabaseManager # rubocop:todo Style/MixinUsage
 
- append_to_file('glowy', 521_103_554)
- file_to_arr('glowy')
- overwrite_file('glowy', %w[this works])
- puts contain_in_file?('glowy', 'her')
- puts contain_in_file?('glowy', 'she') 
- puts remove_from_file('glowy', 'she')
+# append_to_file('glowy', 521_103_554)
+# file_to_arr('glowy')
+# overwrite_file('glowy', %w[this works])
+# puts contain_in_file?('glowy', 'her')
+# puts contain_in_file?('glowy', 'she')
+# puts remove_from_file('glowy', 'she')

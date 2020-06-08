@@ -1,16 +1,16 @@
 class Entries
   attr_reader :user, :file
-  @@users = []
-  @@file = '../db/users.txt'
+  @@users = [] # rubocop:todo Style/ClassVars
+  @@file = '../db/users.txt' # rubocop:todo Style/ClassVars
 
   def initialize(user)
     @user = user
     @file = '../db/users.txt'
-    @@users = update_arr(@user, @file)
+    @@users = update_arr(@user, @file) # rubocop:todo Style/ClassVars
   end
 
   def self.users
-    @@users = File.read(@@file).split("\n")
+    @@users = File.read(@@file).split("\n") # rubocop:todo Style/ClassVars
   end
 
   def delete_user(use)

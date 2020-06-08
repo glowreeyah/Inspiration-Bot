@@ -8,7 +8,6 @@ file_data = File.read('../db/nuggets.txt').split("\n")
 
 token = ENV['TELEGRAM_API_KEY']
 
-
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
     chat_id = message.chat.id
@@ -19,8 +18,8 @@ Telegram::Bot::Client.run(token) do |bot|
       Entries.new(chat_id)
       puts message.from.first_name
 
-    when %r{^/stop} 
-      bot.api.send_message(chat_id: chat_id, text: "You have paused your daily nugget notifications.")
+    when %r{^/stop}
+      bot.api.send_message(chat_id: chat_id, text: 'You have paused your daily nugget notifications.')
 
       Entries.new(chat_id).remove_user(chat_id)
 
@@ -32,10 +31,10 @@ Telegram::Bot::Client.run(token) do |bot|
     when %r{^/cancel}
       Write.new(chat_id).remove_user(chat_id)
 
-      bot.api.send_message(chat_id: chat_id, text: "Your testimony entry has been cancelled.")
-    
+      bot.api.send_message(chat_id: chat_id, text: 'Your testimony entry has been cancelled.')
+
     when %r{^/view}
-      bot.api.send_message(chat_id: chat_id, text: "Here are your testimony entries: #{SaveMessage.get_messages(chat_id)}")
+      bot.api.send_message(chat_id: chat_id, text: "Here are your testimony entries: #{SaveMessage.new(message).messages}")
 
     when %r{^/word}
       bot.api.send_message(chat_id: chat_id, text: (file_data[rand(1..file_data.size)]).to_s)
@@ -44,8 +43,8 @@ Telegram::Bot::Client.run(token) do |bot|
       if Write.write_state?(chat_id)
         Write.new(chat_id).remove_user(chat_id)
         SaveMessage.new(message).store_message
-        bot.api.send_message(chat_id: chat_id, text: "Amazing! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view")
+        bot.api.send_message(chat_id: chat_id, text: 'Amazing! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view')
       end
     end
   end
-end  
+end

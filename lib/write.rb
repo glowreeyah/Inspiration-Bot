@@ -1,12 +1,12 @@
 require_relative 'entries.rb'
 
 class Write < Entries
-  @@file = '../db/users_test.txt'
+  @@file = '../db/users_test.txt' # rubocop:todo Style/ClassVars
 
   def initialize(user)
     @user = user
     @file = '../db/users.txt'
-    @@users = update_arr(@user, @file)
+    @@users = update_arr(@user, @file) # rubocop:todo Style/ClassVars
   end
 
   def self.in_write_state?(user)
