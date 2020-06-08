@@ -1,8 +1,8 @@
 module DatabaseManager
   def append_to_file(file_name, entry)
-    f = File.new("./db/#{file_name}.txt", 'a')
-    f.write("#{entry}\n")
-    f.close
+    n = File.new("./db/#{file_name}.txt", 'a')
+    n.write("#{entry}\n")
+    n.close
     'appended'
   end
 
@@ -11,11 +11,11 @@ module DatabaseManager
   end
 
   def overwrite_file(file_name, new_arr)
-    f = File.new("./db/#{file_name}.txt", 'w')
+    n = File.new("./db/#{file_name}.txt", 'w')
     new_arr.each do |item|
-      f.write("#{item}\n")
+      n.write("#{item}\n")
     end
-    f.close
+    n.close
     'overwritten'
   end
 
