@@ -8,13 +8,16 @@ module DatabaseManager
     'appended'
   end
 
-  def file_to_arr(file_name)
-    File.read("#{DATA_LOCATION}#{file_name}.txt").split("\n")
-  end
-
   def file_exists?(file_name)
     File.file?("#{DATA_LOCATION}#{file_name}.txt")
   end
+
+  def file_to_arr(file_name)
+    return unless file_exists?(file_name)
+
+    File.read("#{DATA_LOCATION}#{file_name}.txt").split("\n")
+  end
+
   def overwrite_file(file_name, new_arr)
     n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'w')
     new_arr.each do |item|
@@ -25,6 +28,8 @@ module DatabaseManager
   end
 
   def contain_in_file?(file_name, entry)
+    return unless file_exists?(file_name)
+
     file_to_arr(file_name).include?(entry.to_s) ? true : false
   end
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 require 'telegram/bot'
 require 'dotenv/load'
-require_relative './lib/save_message.rb'
-require_relative './lib/state_manager.rb'
-file_data = File.read('../db/nuggets.txt').split("\n")
+load './lib/save_message.rb'
+require_relative '../lib/state_manager.rb'
+file_data = File.read('./db/nuggets.txt').split("\n")
 
 token = ENV['TELEGRAM_API_KEY']
 
