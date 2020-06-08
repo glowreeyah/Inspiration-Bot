@@ -10,6 +10,9 @@ module DatabaseManager
     File.read("../db/#{file_name}.txt").split("\n")
   end
 
+  def file_exists?(file_name)
+    File.file?("../db/#{file_name}.txt")
+  end
   def overwrite_file(file_name, new_arr)
     n = File.new("../db/#{file_name}.txt", 'w')
     new_arr.each do |item|
