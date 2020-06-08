@@ -1,20 +1,22 @@
 module DatabaseManager
+  DATA_LOCATION = '../db/'.freeze 
+
   def append_to_file(file_name, entry)
-    n = File.new("../db/#{file_name}.txt", 'a')
+    n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'a')
     n.write("#{entry}\n")
     n.close
     'appended'
   end
 
   def file_to_arr(file_name)
-    File.read("../db/#{file_name}.txt").split("\n")
+    File.read("#{DATA_LOCATION}#{file_name}.txt").split("\n")
   end
 
   def file_exists?(file_name)
-    File.file?("../db/#{file_name}.txt")
+    File.file?("#{DATA_LOCATION}#{file_name}.txt")
   end
   def overwrite_file(file_name, new_arr)
-    n = File.new("../db/#{file_name}.txt", 'w')
+    n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'w')
     new_arr.each do |item|
       n.write("#{item}\n")
     end
