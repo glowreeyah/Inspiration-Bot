@@ -1,15 +1,21 @@
-class MessageResponse
-  def initialize(message)
-    @message = message
-    @chat_id = message.chat.id
+# frozen_string_literal: true
+
+require_relative 'entries.rb'
+
+class Write < Entries
+  def initialize(user)
+    @user = user
+    @file = '.db/users.txt'
+    @@users = update_arr(@user, @file)
   end
 
-  def self.default_reply
-    "Oops, I didn't understand that. Please try sending me one of the commands from /help"
-  end
-
-  def start
-    
-    "Hello #{message.from.first_name} :smiley: \nI will like to send you nuggests from pastor's messages everyday."
+  def self.in_write_state?(user)
+    current_users = File.read('./db.users.txt').split("\n")
+    puts current_users
+    return true if current_users.include? user.to_s
   end
 end
+
+# puts Write.in_write_state?(1061110010)
+# puts Write.new(1061110010)
+# puts Write.new(1061110010).remove_user(1061110010)
