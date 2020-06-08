@@ -10,16 +10,23 @@ class SaveMessage
   end
 
   def save_message
-    date_and_message = "#{@date}: #{@message}\n"
+    date_and_message = "#{@date}: #{@message}"
     append_to_file(@user, date_and_message)
+  end
+
+  def delete_message(index)
+    return if index.zero?
+
+    entry_to_delete = file_to_arr(@user)[index - 1]
+    remove_from_file(@user, entry_to_delete)
   end
 
   def messages(user)
     return unless file_exists?(@user)
 
     get_string = "\n"
-    file_to_arr(@user).each do |entry|
-      get_string += "\n#{entry}\n"
+    file_to_arr(@user).each_with_index do |entry, i|
+      get_string += "\n#{i + 1}. #{entry}\n"
     end
     get_string
   end

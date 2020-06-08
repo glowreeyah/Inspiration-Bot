@@ -16,6 +16,7 @@ Telegram::Bot::Client.run(token) do |bot|
       
       StateManager.new(message, 'users').true_state
       StateManager.new(message, 'writers').false_state
+      StateManager.new(message, 'deleters').false_state
 
       puts message.from.first_name
 
@@ -24,11 +25,13 @@ Telegram::Bot::Client.run(token) do |bot|
 
       StateManager.new(message, 'users').true_state
       StateManager.new(message, 'writers').false_state
+      StateManager.new(message, 'deleters').false_state
 
     when %r{^/write}
       bot.api.send_message(chat_id: chat_id, text: "What is/are your testimonies?\n(I will love to randomly remind you to document your testimony in the future to remind you of the workings of your faith 🥳)\nTo cancel this entry type /cancel")
 
       StateManager.new(message, 'writers').true_state
+      StateManager.new(message, 'deleters').false_state
 
     when %r{^/cancel}
       StateManager.new(message, 'writers').false_state
@@ -38,17 +41,27 @@ Telegram::Bot::Client.run(token) do |bot|
 
     when %r{^/view}
       bot.api.send_message(chat_id: chat_id, text: "Here are your testimony entries: #{SaveMessage.new(message).messages}")
-      StateManager.new(message, 'writers').false_state
+      StateManager.new(message, 'writers')
+      StateManager.new(message, 'deleters').false_state
 
     when %r{^/word}
       bot.api.send_message(chat_id: chat_id, text: (file_data[rand(1..file_data.size)]).to_s)
       StateManager.new(message, 'writers').false_state
+      StateManager.new(message, 'deleters').false_state
+    
+    when %r{^/delete}
+      StateManager.new(message, 'deleters').true_state
+      bot.api.send_message(chat_id: chat_id, text: "Reply with the testimony entry number to delete: #{StoreMessage.new(message).messages}")
 
     else
       if StateManager.new(message, 'writers').state?
         StateManager.new(message, 'writers').false_state
         SaveMessage.new(message).save_message
         bot.api.send_message(chat_id: chat_id, text: 'Amazing! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view')
+      elsif StateManager.new(message, 'deleters').state?
+        StateManager.new(message, 'deleters').false_state
+        StoreMessage.new(message).delete_message(message.text.to_i) 
+        bot.api.send_message(chat_id: chat_id, text: 'Entry deleted!')
       end
     end
   end
