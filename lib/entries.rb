@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Entries
   attr_reader :user, :file
   @@users = []
@@ -41,5 +39,3 @@ class Entries
   #   entry_data[user.to_sym][Time.new.strftime('%Y%m%d%H%M%S').to_s.to_sym.to_sym] = data
   # end
 end
-
-puts Entries.users

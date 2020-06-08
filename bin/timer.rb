@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
 require 'telegram/bot'
 require_relative '../lib/entries.rb'
@@ -10,7 +9,7 @@ token = ENV['TELEGRAM_API_KEY']
 
 loop do
   users = Entries.users
-  users = [1061110010]
+  # users = [1061110010]
   i = 0
   while i < users.size
     user = users[i].to_i
