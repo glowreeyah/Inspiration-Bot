@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 require 'telegram/bot'
 require 'dotenv/load'
-load './lib/write.rb'
-load './lib/save_message.rb'
+require_relative './lib/save_message.rb'
 require_relative './lib/state_manager.rb'
 file_data = File.read('../db/nuggets.txt').split("\n")
 
