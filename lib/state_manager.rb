@@ -12,6 +12,7 @@ class StateManager
   end
 
   def true_state
+    return if state?
     append_to_file(@state_managed, @chat_id)
   end
 
