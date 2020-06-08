@@ -14,7 +14,7 @@ Telegram::Bot::Client.run(token) do |bot|
     chat_id = message.chat.id
     case message.text
     when %r{^/start}
-      message_sent = bot.api.send_message(chat_id: chat_id, text: "Hello #{message.from.first_name} 😁 \nI am your GLA Buddy and will like to send you nuggests from pastor's messages everyday. You can get one immediately by typing /word\nIf you would like me to pause/re-start the reminders, you can reply with /stop and /start.\nYou can also write or view your testimony by typing /write and /view")
+      bot.api.send_message(chat_id: chat_id, text: "Hello #{message.from.first_name} 😁 \nI am your GLA Buddy and will like to send you nuggests from pastor's messages everyday. You can get one immediately by typing /word\nIf you would like me to pause/re-start the Word reminder, you can reply with /stop and /start.\nYou can also write or view your testimony by typing /write and /view")
       # bot.api.send_message(chat_id: chat_id, text: "Word of the day:\n#{file_data[rand(1...file_data.size)]}")
       Entries.new(chat_id)
       puts message.from.first_name
@@ -43,8 +43,8 @@ Telegram::Bot::Client.run(token) do |bot|
     else
       if Write.write_state?(chat_id)
         Write.new(chat_id).remove_user(chat_id)
-        SaveMessage.new(chat_id, message.text).store_message
-        bot.api.send_message(chat_id: chat_id, text: "Glory, Hallelujah! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view")
+        SaveMessage.new(message, message.text.to_s).store_message
+        bot.api.send_message(chat_id: chat_id, text: "Amazing! I have saved your testimony entry, if you would like to take a look at your entries you can send me /view")
       end
     end
   end
