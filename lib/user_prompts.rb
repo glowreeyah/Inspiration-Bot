@@ -4,17 +4,21 @@ require_relative '../lib/state_manager.rb'
 class UserPrompts
   private
 
+  attr_reader :message_object
+  attr_reader :chat_id
+  
   def initialize(message_object)
     @message_object = message_object
     @chat_id = message_object.chat.id
   end
+
   def clear_states
     StateManager.new(message_object, 'writers').false_state
     StateManager.new(message_object, 'deleters').false_state
   end
 
   def user_online
-    StateManager.new(message_object, 'users').false_state
+    StateManager.new(message_object, 'users').true_state
   end
 
   def user_offline
@@ -29,6 +33,14 @@ class UserPrompts
     StateManager.new(message_object, 'deleters').true_state
   end
 
+  def in_write
+    StateManager.new(message_object, 'writers').state?
+  end
+
+  def in_delete
+    StateManager.new(message_object, 'deleters').state?
+  end
+  
   public
 
   def start
@@ -78,12 +90,13 @@ class UserPrompts
   end
 
   def testimony_entry
-    if write_state
-      SaveMessage.new(message_object).save_message
+    if in_write?
       clear_states
+      SaveMessage.new(message_object).save_message
       "Amazing! I have saved your testimony entry.
       \nIf you would like to take a look at your entries you can send me /view"
-    elsif delete_state
+    elsif in_delete?
+      clear_states
       SaveMessage.new(message_object).delete_message(message_object.text.to_i)
       clear_states
       "Entry deleted!"
