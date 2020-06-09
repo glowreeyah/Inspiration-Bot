@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
 require 'telegram/bot'
 require 'dotenv/load'
-require_relative '../lib/save_message.rb'
-require_relative '../lib/state_manager.rb'
 require_relative '../lib/user_prompts.rb'
-
-# file_data = File.read('./db/nuggets.txt').split("\n")
 
 token = ENV['API_KEY']
 
@@ -40,7 +36,7 @@ Telegram::Bot::Client.run(token) do |bot|
               else
                 UserPrompts.new(message_object).testimony_entry
               end
-    response ||= "OOPS! I didn't understand that, please try a using a command from /help"
+    response ||= "OOPS! I didn't get that! Please try a using a command from /help"
     bot.api.send_message(chat_id: chat_id, text: response)
     puts message_object.from.first_name
   end

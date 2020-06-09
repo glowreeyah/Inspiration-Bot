@@ -31,5 +31,3 @@ class SaveMessage
     get_string
   end
 end
-
-# SaveMessage.new(1061110010, 'hi there!').save_message

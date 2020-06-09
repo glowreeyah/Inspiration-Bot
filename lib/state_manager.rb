@@ -1,7 +1,5 @@
 require_relative './database_manager'
 
-# include DatabaseManager
-
 class StateManager
   include DatabaseManager
   extend DatabaseManager
@@ -30,5 +28,3 @@ class StateManager
   end
 end
 
-# Tests
-# puts StateManager.items_managed('users')

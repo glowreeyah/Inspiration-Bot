@@ -100,8 +100,7 @@ in the future to remind you of the workings of your faith 🥳.
     elsif in_delete?
       clear_states
       SaveMessage.new(message_object).delete_message(message_object.text.to_i)
-#   #     clear_states
-      "Entry deleted!"
+      "Entry deleted! #{view}"
     end
   end
 
@@ -110,8 +109,4 @@ in the future to remind you of the workings of your faith 🥳.
     file_data = File.read('./db/nuggets.txt').split("\n")
     file_data[rand(1..file_data.size)].to_s
   end
-
-#   def self.invalid_default
-#     "Oops! I didn't get that, please try using a command or enter /help."
-#   end
 end
