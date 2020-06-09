@@ -1,5 +1,5 @@
 require_relative './database_manager'
- 
+
 # include DatabaseManager
 
 class StateManager
@@ -13,6 +13,7 @@ class StateManager
 
   def true_state
     return if state?
+
     append_to_file(@state_managed, @chat_id)
   end
 
@@ -29,5 +30,5 @@ class StateManager
   end
 end
 
-#Tests
+# Tests
 # puts StateManager.items_managed('users')

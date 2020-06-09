@@ -1,5 +1,5 @@
 module DatabaseManager
-  DATA_LOCATION = './db/'.freeze 
+  DATA_LOCATION = './db/'.freeze
 
   def append_to_file(file_name, entry)
     n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'a')
@@ -46,7 +46,6 @@ module DatabaseManager
 end
 
 ## Testing
-# include DatabaseManager # rubocop:todo Style/MixinUsage
 
 # append_to_file('glowy', 521_103_554)
 # file_to_arr('glowy')
