@@ -4,11 +4,10 @@ require 'telegram/bot'
 require 'dotenv/load'
 require_relative '../lib/state_manager.rb'
 
-token = ENV['TELEGRAM_API_KEY']
-
 file_data = File.read('./db/nuggets.txt').split("\n")
 
 def send_message(message, user)
+  token = ENV['TELEGRAM_API_KEY']
   Telegram::Bot::Client.run(token) do |bot|
     bot.api.send_message(chat_id: user, text: message)
   end
@@ -23,7 +22,7 @@ loop do
   end
   puts 'word sent'
   puts Time.now
-  sleep(43200)
+  sleep(43_200)
 
   users.each do |user|
     send_message("What is/are your testimonies?😊\nSend /write to make an entry", user)
@@ -32,7 +31,7 @@ loop do
   end
   puts 'write testimony'
   puts Time.now
-  sleep(43200)
+  sleep(43_200)
 
   users.each do |user|
     send_message("One of your testimonies 🥳:\n #{user_entry[rand(0..user_entry.size)]}", user)
@@ -42,5 +41,5 @@ loop do
 
   puts 'Testimony entry reminder'
   puts Time.now
-  sleep(43200)
+  sleep(43_200)
 end
