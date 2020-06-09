@@ -10,6 +10,7 @@ token = ENV['TELEGRAM_API_KEY']
 Telegram::Bot::Client.run(token) do |bot| # rubocop:todo Metrics/BlockLength
   bot.listen do |message_object| # rubocop:todo Metrics/BlockLength
     chat_id = message_object.chat.id
+    bot.api.send_message(chat_id: chat_id, text: "Oops! I didn't get that, please try using a command or enter /help.")
     case message_object.text
     when %r{^/start}
       bot.api.send_message(chat_id: chat_id, text: "Hello #{message_object.from.first_name} 😁
