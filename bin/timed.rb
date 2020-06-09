@@ -4,11 +4,12 @@ require 'telegram/bot'
 require 'dotenv/load'
 require_relative '../lib/state_manager.rb'
 
+key = ENV['API_KEY']
+
 file_data = File.read('./db/nuggets.txt').split("\n")
 
 def send_message(message, user)
-  token = ENV['TELEGRAM_API_KEY']
-  Telegram::Bot::Client.run(token) do |bot|
+  Telegram::Bot::Client.run(key) do |bot|
     bot.api.send_message(chat_id: user, text: message)
   end
 end
@@ -25,7 +26,7 @@ loop do
   sleep(43_200)
 
   users.each do |user|
-    send_message("What is/are your testimonies?😊\nSend /write to make an entry", user)
+    send_message("What are your testimonies?😊\nSend /write to make an entry", user)
     p user
     sleep(1)
   end

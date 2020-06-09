@@ -33,11 +33,11 @@ class UserPrompts
     StateManager.new(message_object, 'deleters').true_state
   end
 
-  def in_write
+  def in_write?
     StateManager.new(message_object, 'writers').state?
   end
 
-  def in_delete
+  def in_delete?
     StateManager.new(message_object, 'deleters').state?
   end
   
@@ -46,11 +46,12 @@ class UserPrompts
   def start
     clear_states
     user_online
+
     "Hello #{message_object.from.first_name} 😁
-    \nI am your GLA Buddy and will like to send you nuggests from pastor's messages everyday.
-    You can get one immediately by typing /word
-    \nIf you would like me to pause/re-start the Word reminder, you can reply with /stop and /start.
-    \nYou can also write or view your testimony by typing /write and /view"
+\nI am your GLA Buddy and will like to send you nuggests from pastor's messages everyday.
+You can get one immediately by typing /word
+\nIf you would like me to pause/re-start the Word reminder, you can reply with /stop and /start.
+\nYou can also write or view your testimony by typing /write and /view"
   end
 
   def help
@@ -68,9 +69,9 @@ class UserPrompts
     clear_states
     write_state
     "What are your testimonies?
-    I will love to randomly remind you to document your testimony \
-    in the future to remind you of the workings of your faith 🥳.
-    \nTo cancel this entry type /cancel"
+I will love to randomly remind you to document your testimony \
+in the future to remind you of the workings of your faith 🥳.
+\nTo cancel this entry type /cancel"
   end
 
   def cancel
@@ -94,11 +95,12 @@ class UserPrompts
       clear_states
       SaveMessage.new(message_object).save_message
       "Amazing! I have saved your testimony entry.
-      \nIf you would like to take a look at your entries you can send me /view"
+\nIf you would like to take a look at your entries you can send me /view"
+
     elsif in_delete?
       clear_states
       SaveMessage.new(message_object).delete_message(message_object.text.to_i)
-      clear_states
+#   #     clear_states
       "Entry deleted!"
     end
   end
@@ -109,7 +111,7 @@ class UserPrompts
     file_data[rand(1..file_data.size)].to_s
   end
 
-  def self.invalid_default
-    "Oops! I didn't get that, please try using a command or enter /help."
-  end
+#   def self.invalid_default
+#     "Oops! I didn't get that, please try using a command or enter /help."
+#   end
 end
