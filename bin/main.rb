@@ -33,7 +33,7 @@ Telegram::Bot::Client.run(token) do |bot| # rubocop:todo Metrics/BlockLength
     when %r{^/write}
       bot.api.send_message(chat_id: chat_id, text: "What is/are your testimonies?
       I will love to randomly remind you to document your testimony \
-      in the future to remind you of the workings of your faith 🥳)
+      in the future to remind you of the workings of your faith 🥳.
       \nTo cancel this entry type /cancel")
 
       StateManager.new(message_object, 'writers').true_state
