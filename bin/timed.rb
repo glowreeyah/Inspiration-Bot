@@ -4,11 +4,10 @@ require 'telegram/bot'
 require 'dotenv/load'
 require_relative '../lib/state_manager.rb'
 
-key = ENV['API_KEY']
-
 file_data = File.read('./db/nuggets.txt').split("\n")
 
 def send_message(message, user)
+  key = ENV['API_KEY']
   Telegram::Bot::Client.run(key) do |bot|
     bot.api.send_message(chat_id: user, text: message)
   end

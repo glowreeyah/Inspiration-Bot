@@ -27,4 +27,3 @@ class StateManager
     file_to_arr(state_managed)
   end
 end
-

@@ -44,4 +44,3 @@ module DatabaseManager
     end
   end
 end
-

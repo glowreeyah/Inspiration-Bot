@@ -6,7 +6,7 @@ class UserPrompts
 
   attr_reader :message_object
   attr_reader :chat_id
-  
+
   def initialize(message_object)
     @message_object = message_object
     @chat_id = message_object.chat.id
@@ -40,7 +40,7 @@ class UserPrompts
   def in_delete?
     StateManager.new(message_object, 'deleters').state?
   end
-  
+
   public
 
   def start
@@ -62,7 +62,7 @@ You can get one immediately by typing /word
   def stop
     clear_states
     user_offline
-    "You have paused your daily nugget notifications."
+    'You have paused your daily nugget notifications.'
   end
 
   def write
@@ -76,7 +76,7 @@ in the future to remind you of the workings of your faith 🥳.
 
   def cancel
     clear_states
-    "Your testimony entry has been cancelled."
+    'Your testimony entry has been cancelled.'
   end
 
   def view
