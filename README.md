@@ -3,23 +3,6 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/glowreeyah/Hotelmania">
-  </a>
-
-  <br />
-  <a href="https://github.com/glowreeyah/Hotelmania"><strong>Explore the docs »</strong></a>
-  <br />
-  <br />
-  <a href="https://raw.githack.com/glowreeyah/Hotelmania/master/main.html">View Demo</a>
-  ·
-  <a href="https://github.com/glowreeyah/Hotelmania/issues">Report Bug</a>
-  ·
-  <a href="https://github.com/glowreeyah/Hotelmania/issues">Request Feature</a>
-</p>
-
 # Inspiration-Bot 
 
 This is a Ruby based Telegram bot that gives inspiring messages on request from the user with notifications and reminders to document their thoughts. It is a church bot that was built to aid church members to remember the word of God. This will remind them daily of their faith and testimonies to keep them going. I hope to make it permanently running for use.
@@ -44,13 +27,13 @@ This is a Ruby based Telegram bot that gives inspiring messages on request from 
 
 2. Send the '/help' message to the bot for a list of functional details. Here is a list of available commands:
 
-    - /start - enable notifications
-    - /stop - stop notifications
-    - /write - make an entry
-    - /view - view all your entries
-    - /delete - delete an entry
-    - /cancel - cancel writing or deleting
-    - /word - send a nugget
+    - /start - to enable notifications
+    - /stop - to stop notifications
+    - /write - to make an entry
+    - /view - to view all your entries
+    - /delete - to delete an entry
+    - /cancel - to cancel writing or deleting
+    - /word - to recieve an inspirational word
 
 ## Demo
 
