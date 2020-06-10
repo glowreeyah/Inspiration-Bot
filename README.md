@@ -12,9 +12,9 @@ This is a Ruby based Telegram bot that gives inspiring messages on request from 
 
 3. It gives scheduled reminders every 12 hours which is twice daily. The three reminders are:
 
-- An inspiring word
-- A reminder to document a testimony.
-- A reminder of their testimony entry at random.
+    - An inspiring word
+    - A reminder to document a testimony.
+    - A reminder of their testimony entry at random.
 
 ### To Check it out
 
@@ -22,13 +22,13 @@ This is a Ruby based Telegram bot that gives inspiring messages on request from 
 
 2. Send the '/help' message to the bot for a list of functional details. Here is a list of available commands:
 
-- /start - enable notifications
-- /stop - stop notifications
-- /write - make an entry
-- /view - view all your entries
-- /delete - delete an entry
-- /cancel - cancel writing or deleting
-- /word - send a nugget
+    - /start - enable notifications
+    - /stop - stop notifications
+    - /write - make an entry
+    - /view - view all your entries
+    - /delete - delete an entry
+    - /cancel - cancel writing or deleting
+    - /word - send a nugget
 
 ## Demo
 
@@ -70,13 +70,13 @@ To get a local copy up and running follow these steps:
 
 ## Contribution
 Contributions, issues and feature requests are welcome! Start by:
-* Forking the project
-* Cloning the project to your local machine
-* `cd` into the project directory
-* Run `git checkout -b your-branch-name`
-* Make your contributions
-* Push your branch up to your forked repository
-* Open a Pull Request with a detailed description to the development branch of the original project for a review
+    * Forking the project
+    * Cloning the project to your local machine
+    * `cd` into the project directory
+    * Run `git checkout -b your-branch-name`
+    * Make your contributions
+    * Push your branch up to your forked repository
+    * Open a Pull Request with a detailed description to the development branch of the original project for a review
 
 ## Show your support
 
