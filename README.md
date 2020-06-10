@@ -1,5 +1,27 @@
 [![hire-badge](https://img.shields.io/badge/Consult%20/%20Hire%20Glory-Click%20to%20Contact-brightgreen)](mailto:consult.glodave99@gmail.com) [![Twitter Follow](https://img.shields.io/twitter/follow/gloweeeyah?label=Follow%20gloweeeyah%20on%20Twitter&style=social)](https://twitter.com/gloweeeyah)
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/glowreeyah/Hotelmania">
+  </a>
+
+  <br />
+  <a href="https://github.com/glowreeyah/Hotelmania"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://raw.githack.com/glowreeyah/Hotelmania/master/main.html">View Demo</a>
+  ·
+  <a href="https://github.com/glowreeyah/Hotelmania/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/glowreeyah/Hotelmania/issues">Request Feature</a>
+</p>
+
 # Inspiration-Bot 
 
 This is a Ruby based Telegram bot that gives inspiring messages on request from the user with notifications and reminders to document their thoughts. It is a church bot that was built to aid church members to remember the word of God. This will remind them daily of their faith and testimonies to keep them going. I hope to make it permanently running for use.
@@ -98,6 +120,7 @@ Give a ⭐️ if you like this project!
 [stars-url]: https://github.com/glowreeyah/Inspiration-Bot/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Inspiration-Bot.svg?style=flat-square
 [issues-url]: https://github.com/glowreeyah/Inspiration-Bot/issues
+[product-screenshot]: screenshot.gif
 
 ## 📝 License
 
