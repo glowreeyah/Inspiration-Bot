@@ -5,7 +5,7 @@ module DatabaseManager
     n = File.new("#{DATA_LOCATION}#{file_name}.txt", 'a')
     n.write("#{entry}\n")
     n.close
-    'appended'
+    'Appended to File'
   end
 
   def file_exists?(file_name)
@@ -24,7 +24,7 @@ module DatabaseManager
       n.write("#{item}\n")
     end
     n.close
-    'overwritten'
+    'File Overwritten'
   end
 
   def contain_in_file?(file_name, entry)
@@ -38,9 +38,9 @@ module DatabaseManager
       temp_arr = file_to_arr(file_name)
       temp_arr.delete(entry.to_s)
       overwrite_file(file_name, temp_arr)
-      'removed'
+      'File Removed'
     else
-      'not found'
+      'Entry Not Found'
     end
   end
 end
