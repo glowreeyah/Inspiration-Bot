@@ -56,7 +56,14 @@ You can get one immediately by typing /word
 
   def help
     clear_states
-    "Here is a list of available commands:\n/start\n/stop\n/write\n/delete\n/view\n/word"
+    "Here is a list of available commands:
+/start - enable notifications
+/stop - stop notifications
+/write - make an entry
+/view - view all your entries
+/delete - delete an entry
+/cancel - cancel writing or deleting
+/word - send a nugget"
   end
 
   def stop

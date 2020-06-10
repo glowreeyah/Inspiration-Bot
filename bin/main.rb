@@ -28,8 +28,8 @@ Telegram::Bot::Client.run(token) do |bot|
                else
                  UserPrompts.new(message_object).testimony_entry
                end
-    response ||= "OOPS! I didn't get that! Please try a using a command from /help"
+    response ||= "OOPS! I didn't get that! Please try using a command from /help"
     bot.api.send_message(chat_id: chat_id, text: response)
-    puts message_object.from.first_name
+    # puts message_object.from.first_name
   end
 end
