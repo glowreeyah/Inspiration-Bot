@@ -4,7 +4,8 @@
 
 This is a Ruby based Telegram bot that gives inspiring messages on request from the user with notifications and reminders to document their thoughts. It is a church bot that was built to aid church members to remember the word of God. This will remind them daily of their faith and testimonies to keep them going. I hope to make it permanently running for use.
 
-[![Product Name Screen Shot][product-screenshot]](bot_screenshot.gif)
+[![Product Name Screen Shot][product-screenshot]](screenshot.gif)
+
 ## Features
 
 1. This bot provides an inspiring word to the user on request.
