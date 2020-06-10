@@ -13,22 +13,45 @@ def send_message(message, user)
   end
 end
 
-loop do
-  users = StateManager.items_managed('users')
+def user_list
+  StateManager.items_managed('users')
+end
+
+loop do # rubocop:todo Metrics/BlockLength
+  users = user_list
+
   users.each do |user|
-    send_message("Word for the day:\n#{file_data[rand(0..file_data.size)]}", user)
+    begin
+      send_message("Word for the day:\n#{file_data[rand(0..file_data.size)]}", user)
+    rescue StandardError
+      p 'Unable'
+    end
     sleep(1)
   end
   sleep(300)
 
+  users = user_list
+
   users.each do |user|
-    send_message("What are your testimonies?😊\nSend /write to make an entry", user)
+    begin
+      send_message("What are your testimonies?😊\nSend /write to make an entry", user)
+    rescue StandardError
+      p 'Unable'
+    end
     sleep(1)
   end
   sleep(300)
 
+  users = user_list
   users.each do |user|
-    send_message("One of your testimonies 🥳:\n #{user_entry[rand(0..user_entry.size)]}", user)
+    next unless File.file?("./db/#{user}.txt")
+
+    user_entry = File.read("./db/#{user}.txt").split("\n")
+    begin
+      send_message("One of your testimonies 🥳:\n #{user_entry[rand(0..user_entry.size)]}", user)
+    rescue StandardError
+      p 'Unable'
+    end
     sleep(1)
   end
   sleep(300)

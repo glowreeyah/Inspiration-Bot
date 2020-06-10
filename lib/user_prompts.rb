@@ -88,13 +88,13 @@ in the future to remind you of the workings of your faith 🥳.
 
   def view
     clear_states
-    "Here are your testimony entries: #{SaveMessage.new(message_object).messages}"
+    "Here are your testimony entries: #{SaveMessage.new(message_object).view_messages}"
   end
 
   def delete
     clear_states
     delete_state
-    "Reply with the testimony entry number to delete: #{SaveMessage.new(message_object).messages}"
+    "Reply with the testimony entry number to delete: #{SaveMessage.new(message_object).view_messages}"
   end
 
   def testimony_entry
