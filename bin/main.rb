@@ -30,6 +30,5 @@ Telegram::Bot::Client.run(token) do |bot|
                end
     response ||= "OOPS! I didn't get that! Please try using a command from /help"
     bot.api.send_message(chat_id: chat_id, text: response)
-    # puts message_object.from.first_name
   end
 end
