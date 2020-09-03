@@ -33,11 +33,25 @@ This is a Ruby based Telegram bot that gives inspiring messages on request from 
     - /view - to view all your entries
     - /delete - to delete an entry
     - /cancel - to cancel writing or deleting
-    - /word - to recieve an inspirational word
+    - /word - to receive an inspiring word
 
 ## Demo
 
 You can see it working [here](https://t.me/TheGlaBot)
+
+## How it works
+
+There are two parts that run: 
+    - the main.rb waits for the commands from the user and replies. 
+    - the timed.rb sends reminders to the user that has accepted to receive them.
+
+There is a basic database manager module that gives the classes control over the text files which make up the database folder.
+
+There are 3 classes: 
+    - The SaveMessage class contains the methods to save thought entries from the user. It controls the view feature that allows the user to view their entries and delete them. A new text file is created to save each user's data upon new entry.
+    - The StateManager class alerts the bot on what each user would like to do. It creates a file upon selection of any option. 
+    - The UserPrompts class contains all the replies that the bot will send to the user which are: the /start, /stop, /write, /view, /delete, /cancel, /help and /word.
+        
 
 ## Built With
 
