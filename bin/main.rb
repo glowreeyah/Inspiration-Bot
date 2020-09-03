@@ -35,9 +35,7 @@ Telegram::Bot::Client.run(token) do |bot|
   end
 end
 
-
 def send_message(message, user)
-  key = ENV['API_KEY']
   Telegram::Bot::Client.run(key) do |bot|
     bot.api.send_message(chat_id: user, text: message)
   end
